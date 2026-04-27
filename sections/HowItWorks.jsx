@@ -134,27 +134,23 @@ const HowItWorks = () => {
                 <div
                   key={step.number}
                   ref={(el) => (stepRefs.current[i] = el)}
-                  className={`relative flex items-center gap-0 max-md:flex-row max-md:pl-20 max-md:pr-0 ${
-                    isEven ? "flex-row" : "flex-row-reverse"
-                  }`}
+                  className={`relative flex items-center gap-0 max-md:flex-row max-md:pl-20 max-md:pr-0 ${isEven ? "flex-row" : "flex-row-reverse"
+                    }`}
                   style={{ minHeight: 180, marginBottom: i < steps.length - 1 ? 0 : 0 }}
                 >
                   {/* Content card — left or right */}
                   <div
-                    className={`flex-1 py-8 transition-all duration-700 ${
-                      isEven ? "pr-16 max-md:pr-0" : "pl-16 max-md:pl-0"
-                    } ${
-                      isVisible
+                    className={`flex-1 py-8 transition-all duration-700 ${isEven ? "pr-16 max-md:pr-0" : "pl-16 max-md:pl-0"
+                      } ${isVisible
                         ? "opacity-100 translate-y-0"
                         : isEven
-                        ? "opacity-0 -translate-x-8"
-                        : "opacity-0 translate-x-8"
-                    } max-md:opacity-100 max-md:translate-x-0`}
+                          ? "opacity-0 -translate-x-8"
+                          : "opacity-0 translate-x-8"
+                      } max-md:opacity-100 max-md:translate-x-0`}
                   >
                     <div
-                      className={`relative border-2 border-s3 rounded-3xl g7 overflow-hidden p-7 max-md:p-5 ${
-                        isEven ? "ml-auto max-w-[440px] max-md:ml-0 max-md:max-w-full" : "mr-auto max-w-[440px] max-md:ml-0 max-md:max-w-full"
-                      }`}
+                      className={`relative border-2 border-s3 rounded-3xl g7 overflow-hidden p-7 max-md:p-5 ${isEven ? "ml-auto max-w-[440px] max-md:ml-0 max-md:max-w-full" : "mr-auto max-w-[440px] max-md:ml-0 max-md:max-w-full"
+                        }`}
                     >
                       <div
                         className="absolute top-0 left-1/4 right-1/4 h-0.5 opacity-30"
@@ -219,8 +215,8 @@ const HowItWorks = () => {
                 </svg>
               </div>
               <div className="text-center max-md:text-left">
-                <p className="base-bold text-p4 mb-1">Kendaraan Terverifikasi</p>
-                <p className="body-3 text-p5 opacity-60">Siap diperjualbelikan dengan kepercayaan penuh.</p>
+                <p className="base-bold text-p4 mb-1">Verified Vehicle</p>
+                <p className="body-3 text-p5 opacity-60">Ready to be traded with full confidence.</p>
               </div>
             </div>
           </div>
