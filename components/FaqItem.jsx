@@ -1,25 +1,27 @@
+'use client'
 import clsx from "clsx";
-import { useState } from "react";
-import { SlideDown } from "react-slidedown";
-import "react-slidedown/lib/slidedown.css";
+import { useState, useRef, useEffect } from "react";
 
 const FaqItem = ({ item, index }) => {
-  const [activeId, setActiveId] = useState(null);
+  const [active, setActive] = useState(false);
+  const contentRef = useRef(null);
+  const [height, setHeight] = useState(0);
 
-  const active = activeId === item.id;
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(active ? contentRef.current.scrollHeight : 0);
+    }
+  }, [active]);
 
   return (
     <div className="relative z-2 mb-16">
       <div
         className="group relative flex cursor-pointer items-center justify-between gap-10 px-7"
-        onClick={() => {
-          setActiveId(activeId === item.id ? null : item.id);
-        }}
+        onClick={() => setActive((prev) => !prev)}
       >
         <div className="flex-1">
           <div className="small-compact mb-1.5 text-p3 max-lg:hidden">
-            {index < 10 ? "0" : ""}
-            {index}
+            {index < 10 ? "0" : ""}{index}
           </div>
           <div
             className={clsx(
@@ -41,11 +43,17 @@ const FaqItem = ({ item, index }) => {
         </div>
       </div>
 
-      <SlideDown>
-        {activeId === item.id && (
-          <div className="body-3 px-7 py-3.5">{item.answer}</div>
-        )}
-      </SlideDown>
+      {/* Pengganti SlideDown */}
+      <div
+        ref={contentRef}
+        style={{
+          height: height,
+          overflow: "hidden",
+          transition: "height 0.4s ease",
+        }}
+      >
+        <div className="body-3 px-7 py-3.5">{item.answer}</div>
+      </div>
 
       <div
         className={clsx(
@@ -59,4 +67,5 @@ const FaqItem = ({ item, index }) => {
     </div>
   );
 };
+
 export default FaqItem;

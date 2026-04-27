@@ -17,7 +17,6 @@
     "react-countup": "^6.5.3",
     "react-dom": "19.2.4",
     "react-scroll": "^1.9.3",
-    "react-slidedown": "^2.4.7",
     "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
